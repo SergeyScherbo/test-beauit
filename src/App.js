@@ -32,7 +32,10 @@ class App extends Component {
           <Switch>
             <Route path="/counter" component={Counter} />
             <Route path="/login" render={(props) => <Login onLogin={this.handleLogin} {...props} />} />
-            <Route path="/profile" render={(props) => <Profile user={this.state.user} {...props} />} />
+            {this.state.user
+              ? <Route path="/profile" render={(props) => <Profile user={this.state.user} {...props} />} />
+              : null
+            }
             <Route path="/not-found" component={NotFound} />
             <Route exact path="/" component={Home} />
             <Redirect to="/not-found" />
