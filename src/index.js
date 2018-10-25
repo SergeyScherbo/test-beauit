@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 import './styles/main.scss';
+import 'font-awesome/css/font-awesome.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
