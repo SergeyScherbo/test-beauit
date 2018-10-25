@@ -8,34 +8,34 @@ import Profile from './components/profile';
 import Home from './components/home';
 import NotFound from './components/notFound';
 
+import { setUserLocally, removeUserLocally } from './utils/users';
+
 class App extends Component {
   state = {
     user: null
   };
 
   handleLogin = user => {
-    console.log(user);
-    if (user.username === 'Admin' && user.password === '12345') {
-      this.setState({
-        user
-      });
-    }
+    this.setState({ user });
+    setUserLocally(user);
   };
+
+  handleLogout = () => {
+    this.setState({ user: null });
+    removeUserLocally();
+  }
 
   render() {
     return (
       <div className="app">
         <div className="container">
-          <NavBar user={this.state.user} />
+          <NavBar onLogout={this.handleLogout} />
         </div>
         <div className="container container--content">
           <Switch>
             <Route path="/counter" component={Counter} />
             <Route path="/login" render={(props) => <Login onLogin={this.handleLogin} {...props} />} />
-            {this.state.user
-              ? <Route path="/profile" render={(props) => <Profile user={this.state.user} {...props} />} />
-              : null
-            }
+            {this.state.user ? <Route path="/profile" component={Profile} /> : null}
             <Route path="/not-found" component={NotFound} />
             <Route exact path="/" component={Home} />
             <Redirect to="/not-found" />
