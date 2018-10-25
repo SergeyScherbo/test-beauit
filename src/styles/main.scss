@@ -3,6 +3,22 @@
 @import './variables';
 @import './common';
 
+@import './layout';
+@import './navigation';
+@import './counter';
+@import './button';
+@import './field';
+
 body {
-  background-color: deepskyblue;
+  padding: 0;
+  background-color: $main;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+.error {
+  margin-left: 10px;
+  color: red;
 }

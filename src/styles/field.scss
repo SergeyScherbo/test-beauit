@@ -1,0 +1,22 @@
+.field-wrp {
+	margin-bottom: 15px;
+}
+
+.field {
+	height: 35px;
+	line-height: 33px;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 14px;
+	transition: .3s;
+
+	&:focus {
+		border-color: #999;
+	}
+}
+
+::placeholder {
+	font-size: 14px;
+	color: #aaa;
+}

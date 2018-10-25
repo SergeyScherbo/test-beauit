@@ -1,0 +1,39 @@
+@mixin button($color) {
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	border: none;
+	color: #fff;
+	background-color: $color;
+
+	&:hover {
+		background-color: darken($color, 5%);
+	}
+
+	&:active {
+		box-shadow: 0 0 0 2px fade-out($color, .5);
+	}
+}
+
+.button {
+	border-radius: 5px;
+	cursor: pointer;
+	transition: .3s;
+
+	&--default {
+		@include button(darken($main, 15%));
+	}
+
+	&--primary {
+		@include button(darken(deepskyblue, 5%));
+	}
+
+	&--squared {
+		width: 35px;
+		padding: 0;
+	}
+
+	&[disabled] {
+		opacity: .5;
+	}
+}

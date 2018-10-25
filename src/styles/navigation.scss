@@ -1,0 +1,31 @@
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 0;
+	border-bottom: 2px solid #eee;
+
+	&__main,
+	&__additional {
+		display: flex;
+
+		li {
+			&:not(:last-of-type) {
+				margin-right: 10px;
+			}
+
+			a {
+				font-size: 1.3rem;
+				color: lighten($text, 30%);
+				transition: .3s;
+
+				&:hover {
+					color: $text;
+				}
+			}
+
+			.active {
+				color: $text;
+			}
+		}
+	}
+}
