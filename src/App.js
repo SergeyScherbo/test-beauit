@@ -7,6 +7,7 @@ import Login from './components/login';
 import Profile from './components/profile';
 import Home from './components/home';
 import NotFound from './components/notFound';
+import NoPermission from './components/noPermission';
 
 import { setUserLocally, removeUserLocally } from './utils/users';
 
@@ -35,7 +36,7 @@ class App extends Component {
           <Switch>
             <Route path="/counter" component={Counter} />
             <Route path="/login" render={(props) => <Login onLogin={this.handleLogin} {...props} />} />
-            {this.state.user ? <Route path="/profile" component={Profile} /> : null}
+            {this.state.user ? <Route path="/profile" component={Profile} /> : <Route path="/profile" component={NoPermission} />}
             <Route path="/not-found" component={NotFound} />
             <Route exact path="/" component={Home} />
             <Redirect to="/not-found" />
