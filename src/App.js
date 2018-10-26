@@ -9,7 +9,7 @@ import Home from './components/home';
 import NotFound from './components/notFound';
 import NoPermission from './components/noPermission';
 
-import { setUserLocally, removeUserLocally } from './utils/users';
+import { setUserLocally, removeUserLocally, getUserLocally } from './utils/users';
 
 class App extends Component {
   state = {
@@ -24,6 +24,11 @@ class App extends Component {
   handleLogout = () => {
     this.setState({ user: null });
     removeUserLocally();
+  };
+
+  componentDidMount() {
+    const user = getUserLocally();
+    this.setState({ user });
   }
 
   render() {
