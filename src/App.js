@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="container">
-          <NavBar onLogout={this.handleLogout} />
+          <NavBar user={this.state.user} onLogout={this.handleLogout} />
         </div>
         <div className="container container--content">
           <Switch>

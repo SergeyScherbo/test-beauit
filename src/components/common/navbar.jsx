@@ -2,8 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { getUserLocally } from '../../utils/users';
 
-const NavBar = ({ onLogout }) => {
-	const user = getUserLocally();
+const NavBar = ({ user, onLogout }) => {
 	return (
 		<nav className="navigation">
 			<ul className="navigation__main">
